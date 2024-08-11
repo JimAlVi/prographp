@@ -15,6 +15,7 @@ $('document').ready(function()
         "columns": [
             { "data": "idusuario" },
             { "data": "caja" },
+            { "data": "nombrerol" },
             { "data": "usuario" },
             { "data": "nombre" },
             { "data": "papellido" },
@@ -51,7 +52,7 @@ $('document').ready(function()
     
    
 
-function frmLogin(e){
+function frmLogin(e){ 
     e.preventDefault();
     const usuario = document.getElementById("usuario");
     const clave = document.getElementById("clave");
@@ -87,7 +88,7 @@ function frmLogin(e){
     }
 }
 
-function frmUsuario(){
+function frmUsuario(){ 
     document.getElementById("titulo").innerHTML = "Registrar Usuario";
     document.getElementById("btnAccion").innerHTML = "Guardar";
     document.getElementById("frmusuario").reset();
@@ -106,12 +107,13 @@ function registrarUser(e){
     const clave = document.getElementById("clave");
     const confirmar = document.getElementById("confirmar");
     const caja = document.getElementById("caja");
+    const rol = document.getElementById("rol");
     var estado = document.getElementById("estado");
     //seleccion = estado.options[estado.selectedIndex].value;
     //alert(estado);
    
 
-    if (nombre.value == ""  || papellido.value == ""  || sapellido.value == ""  ||telefono.value == ""  ||correo.value == ""  ||usuario.value == ""  ||clave.value == "" ||caja.value == ""||estado == -1) {
+    if (nombre.value == ""  || papellido.value == ""  || sapellido.value == ""  ||telefono.value == ""  ||correo.value == ""  ||usuario.value == ""  ||clave.value == "" ||caja.value == "" ||rol.value == ""||estado == -1) {
         Swal.fire({
             position: "top-end",
             icon: "error",
@@ -205,19 +207,14 @@ function btnEditarUser(id){
                 document.getElementById("correo").value= res.correo;
                 document.getElementById("usuario").value= res.usuario;
                 //document.getElementById("clave")= res.clave;
+                document.getElementById("rol").value= res.id_rol;
                 document.getElementById("caja").value= res.id_caja;
                 document.getElementById("estado").value= res.estado; 
                 $("#nuevo_usuario").modal("show");
               //console.log(this.responseText);
                 
             }
-        }//onreadystatechange
-
-
-
-
-
-    
+        }//onreadystatechange    
 }
 
 
@@ -248,8 +245,7 @@ function btnEliminarUser(id){
                         title: "Usuario no se a desactivado",
                         showConfirmButton: false,
                         timer: 2000
-                      });
-              
+                      });     
                 
             }
 

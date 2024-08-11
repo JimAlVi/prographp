@@ -11,7 +11,8 @@
     <thead class="table-dark">
         <tr>
             <th>id</th>
-            <th>Caja</th>
+            <th>Caja</th> 
+            <th>Rol</th>           
             <th>Usuario</th>
             <th>Nombre</th>
             <th>Primer Apellido</th>
@@ -85,13 +86,31 @@
                     <div class="form-group">
                         <label for="Caja">Caja</label>
                         <select class="form-control" name="caja" id="caja" >
-                            <?php foreach ($data as $row) { ?>
+                            <?php foreach ($data['cajas'] as $row) { ?>
 
                                <option value="<?php echo $row['id'] ?>"><?php echo $row['caja'] ?></option>
                                <?php } ?>
                                <option value="" selected="selected">Seleccionar...</option>
                         </select>
                     </div>
+
+                  <!--<?php 
+                    //echo '<pre>';
+                    //print_r($data);  // Esto imprimirá el contenido de $data en la página.
+                    //echo '</pre>';
+                    ?> -->
+
+                    <div class="form-group">
+                        <label for="Rol">Rol</label>
+                        <select class="form-control" name="rol" id="rol" >
+                            <?php foreach ($data['roles'] as $row) { ?>
+
+                               <option value="<?php echo $row['id'] ?>"><?php echo $row['nombre'] ?></option>
+                               <?php } ?>
+                               <option value="" selected="selected">Seleccionar...</option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="Estado">Estado</label>
                         <select class="form-control" name="estado" id="estado" >

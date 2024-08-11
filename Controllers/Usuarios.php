@@ -11,12 +11,13 @@ class Usuarios extends Controller{
         parent::__construct();
     }
 
-    public function index(){
-        $data= $this->model->getCajas();
+    public function index(){ //la funcion de este index es mostrar la vista en la pantalla       
+        $data['cajas'] = $this->model->getCajas();
+        $data['roles'] = $this->model->getRoles();
         $this->views->getView($this,"index",$data);
     }//final del index
 
-    public function listar(){
+    public function listar(){ 
         $datos= $this->model->getUsuarios();
         for ($i=0; $i < count($datos); $i++){
 
@@ -59,6 +60,7 @@ class Usuarios extends Controller{
                     $_SESSION['id_usuario'] = $data['id'];
                     $_SESSION['usuario'] = $data['usuario'];
                     $_SESSION['nombre'] = $data['nombre']." ".$data['papellido']." ".$data['sapellido'];
+                    //$_SESSION['id_rol'] = $data['id_rol'];
                     $_SESSION['activo'] = true;
                     $msg = "ok";
                 }else{
@@ -81,11 +83,12 @@ class Usuarios extends Controller{
          $correo = $_POST["correo"];
          $usuario = $_POST["usuario"];
          $clave = $_POST["clave"];
-         $confirmar = $_POST["confirmar"];
+         $confirmar = $_POST["confirmar"];         
          $caja = $_POST["caja"];
+         $rol = $_POST["rol"];
          $estado = $_POST["estado"];
          $id = $_POST["id"];
-         if (empty($nombre)  || empty($papellido)  || empty($sapellido)  || empty($telefono)  || empty($correo)  || empty($usuario)  || empty($clave) || empty($caja) || $estado == -1){
+         if (empty($nombre)  || empty($papellido)  || empty($sapellido)  || empty($telefono)  || empty($correo)  || empty($usuario)  || empty($clave) || empty($caja) || empty($rol) || $estado == -1){
             $msg = "Todos los campos son Obligatorios";
          }else if($clave != $confirmar){
             $msg = "Las contrasenas no coinciden";
@@ -97,7 +100,7 @@ class Usuarios extends Controller{
                  $pass = password_hash($clave, PASSWORD_BCRYPT, $opciones);  
                   
                 
-                $data = $this->model->registrarUsuario($caja, $nombre, $papellido, $sapellido, $telefono, $correo, $usuario, $pass, $estado);
+                $data = $this->model->registrarUsuario($rol, $caja, $nombre, $papellido, $sapellido, $telefono, $correo, $usuario, $pass, $estado);
                 if ($data == "Ok") {
                     $msg = "Si";
                     }else if ($data=="existe") {
@@ -110,7 +113,7 @@ class Usuarios extends Controller{
                     'cost' => 4,
                 ];
                  $pass = password_hash($clave, PASSWORD_BCRYPT, $opciones);
-                $data = $this->model->modificarUsuario($id, $caja, $nombre, $papellido, $sapellido, $telefono, $correo, $usuario, $pass, $estado);
+                $data = $this->model->modificarUsuario($id,$rol, $caja, $nombre, $papellido, $sapellido, $telefono, $correo, $usuario, $pass, $estado);
                 if ($data == "modificado") {
                     $msg = "Modificado";
                     }else {
