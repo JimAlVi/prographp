@@ -79,7 +79,7 @@ class Usuarios extends Controller{
          $nombre = $_POST["nombre"];
          $papellido = $_POST["papellido"];
          $sapellido = $_POST["sapellido"];
-         $telefono = $_POST["telefono"];
+         /* $telefono = $_POST["telefono"]; */
          $correo = $_POST["correo"];
          $usuario = $_POST["usuario"];
          $clave = $_POST["clave"];
@@ -88,7 +88,7 @@ class Usuarios extends Controller{
          $rol = $_POST["rol"];
          $estado = $_POST["estado"];
          $id = $_POST["id"];
-         if (empty($nombre)  || empty($papellido)  || empty($sapellido)  || empty($telefono)  || empty($correo)  || empty($usuario)  || empty($clave) || empty($caja) || empty($rol) || $estado == -1){
+         if (empty($nombre)  || empty($papellido)  || empty($sapellido)  /* || empty($telefono)   */|| empty($correo)  || empty($usuario)  || empty($clave) || empty($caja) || empty($rol) || $estado == -1){
             $msg = "Todos los campos son Obligatorios";
          }else if($clave != $confirmar){
             $msg = "Las contrasenas no coinciden";
@@ -100,7 +100,7 @@ class Usuarios extends Controller{
                  $pass = password_hash($clave, PASSWORD_BCRYPT, $opciones);  
                   
                 
-                $data = $this->model->registrarUsuario($rol, $caja, $nombre, $papellido, $sapellido, $telefono, $correo, $usuario, $pass, $estado);
+                $data = $this->model->registrarUsuario($rol, $caja, $nombre, $papellido, $sapellido, /* $telefono, */ $correo, $usuario, $pass, $estado);
                 if ($data == "Ok") {
                     $msg = "Si";
                     }else if ($data=="existe") {
@@ -113,7 +113,7 @@ class Usuarios extends Controller{
                     'cost' => 4,
                 ];
                  $pass = password_hash($clave, PASSWORD_BCRYPT, $opciones);
-                $data = $this->model->modificarUsuario($id,$rol, $caja, $nombre, $papellido, $sapellido, $telefono, $correo, $usuario, $pass, $estado);
+                $data = $this->model->modificarUsuario($id,$rol, $caja, $nombre, $papellido, $sapellido, /* $telefono, */ $correo, $usuario, $pass, $estado);
                 if ($data == "modificado") {
                     $msg = "Modificado";
                     }else {

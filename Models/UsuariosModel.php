@@ -18,7 +18,7 @@
          }
 
         public function getUsuarios(){
-            $sql = "SELECT u.id as 'idusuario', c.id as idcaja, c.caja, r.id as idrol, r.nombre as nombrerol, u.usuario, u.nombre, u.papellido, u.sapellido, u.telefono, u.correo, u.estado
+            $sql = "SELECT u.id as 'idusuario', c.id as idcaja, c.caja, r.id as idrol, r.nombre as nombrerol, u.usuario, u.nombre, u.papellido, u.sapellido, /* u.telefono, */ u.correo, u.estado
                     FROM usuarios as u
                     INNER JOIN caja as c
                     ON u.id_caja = c.id
@@ -41,14 +41,14 @@
             return $data;
         } 
 
-        public function registrarUsuario($id_rol, $id_caja, $nombre, $papellido, $sapellido, $telefono, $correo, $usuario, $clave, $estado){
-            $sql = "INSERT INTO usuarios(id_rol, id_caja, nombre, papellido, sapellido, telefono, correo, usuario, password, estado) values (?,?,?,?,?,?,?,?,?,?)";
+        public function registrarUsuario($id_rol, $id_caja, $nombre, $papellido, $sapellido, /* $telefono, */ $correo, $usuario, $clave, $estado){
+            $sql = "INSERT INTO usuarios(id_rol, id_caja, nombre, papellido, sapellido, /* telefono, */ correo, usuario, password, estado) values (?,?,?,?,?,/* ?, */?,?,?,?)";
             $datos = array($id_rol, 
             $id_caja,
             $nombre,
             $papellido,
             $sapellido,
-            $telefono,
+            /* $telefono, */
             $correo,
             $usuario,
             $clave,
@@ -70,14 +70,14 @@
            return $res;
         }//Final de la Funcion Registrar Usuario
 
-        public function modificarUsuario($id,$id_rol, $id_caja, $nombre, $papellido, $sapellido, $telefono, $correo, $usuario, $clave, $estado){
+        public function modificarUsuario($id,$id_rol, $id_caja, $nombre, $papellido, $sapellido, /* $telefono, */ $correo, $usuario, $clave, $estado){
             $sql = "UPDATE usuarios SET
             id_rol = ?,
             id_caja = ?,
             nombre = ?,
             papellido = ?,
             sapellido = ?,
-            telefono = ?,
+           /*  telefono = ?, */
             correo = ?,
             usuario = ?,
             password = ?,
@@ -88,7 +88,7 @@
             $nombre,
             $papellido,
             $sapellido,
-            $telefono,
+            /* $telefono, */
             $correo,
             $usuario,
             $clave,

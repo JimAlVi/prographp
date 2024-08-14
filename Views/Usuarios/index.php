@@ -16,8 +16,7 @@
             <th>Usuario</th>
             <th>Nombre</th>
             <th>Primer Apellido</th>
-            <th>Segundo Apellido</th>
-            <th>Telefono</th>
+            <th>Segundo Apellido</th>            
             <th>Correo</th>
             <th>Estado</th>
             <th>Acciones</th>
@@ -55,10 +54,10 @@
                         <label for="Segundo_Apellido">Segundo Apellido</label>
                         <input type="text" class="form-control" name="sapellido" id="sapellido" placeholder="Segundo Apellido">
                     </div>
-                    <div class="form-group">
+                   <!--  <div class="form-group">
                         <label for="Telefono">Telefono</label>
                         <input type="text" class="form-control" name="telefono" id="telefono" placeholder="8888888">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="correo">Correo</label>
                         <input type="email" class="form-control" name="correo" id="correo" placeholder="ejemplo@ejemplo.com">

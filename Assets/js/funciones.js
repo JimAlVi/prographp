@@ -20,7 +20,7 @@ $('document').ready(function()
             { "data": "nombre" },
             { "data": "papellido" },
             { "data": "sapellido" },
-            { "data": "telefono" },
+            /* { "data": "telefono" }, */
             { "data": "correo" },
             { "data": "estado" },
             { "data": "acciones" }
@@ -101,7 +101,7 @@ function registrarUser(e){
     const nombre = document.getElementById("nombre");
     const papellido = document.getElementById("papellido");
     const sapellido = document.getElementById("sapellido");
-    const telefono = document.getElementById("telefono");
+    /* const telefono = document.getElementById("telefono"); */
     const correo = document.getElementById("correo");
     const usuario = document.getElementById("usuario");
     const clave = document.getElementById("clave");
@@ -113,7 +113,7 @@ function registrarUser(e){
     //alert(estado);
    
 
-    if (nombre.value == ""  || papellido.value == ""  || sapellido.value == ""  ||telefono.value == ""  ||correo.value == ""  ||usuario.value == ""  ||clave.value == "" ||caja.value == "" ||rol.value == ""||estado == -1) {
+    if (nombre.value == ""  || papellido.value == ""  || sapellido.value == ""  /* ||telefono.value == ""  */ ||correo.value == ""  ||usuario.value == ""  ||clave.value == "" ||caja.value == "" ||rol.value == ""||estado == -1) {
         Swal.fire({
             position: "top-end",
             icon: "error",
@@ -203,7 +203,7 @@ function btnEditarUser(id){
                 document.getElementById("nombre").value = res.nombre;
                 document.getElementById("papellido").value= res.papellido;
                 document.getElementById("sapellido").value= res.sapellido;
-                document.getElementById("telefono").value= res.telefono;
+                /* document.getElementById("telefono").value= res.telefono; */
                 document.getElementById("correo").value= res.correo;
                 document.getElementById("usuario").value= res.usuario;
                 //document.getElementById("clave")= res.clave;
