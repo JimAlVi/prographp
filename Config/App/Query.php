@@ -36,6 +36,20 @@ class Query extends Conexion{
         }
         return $res;
     }//Registrar Datos
+
+    public function delete(string $sql, array $datos){
+        $this->sql = $sql;
+        $this->datos = $datos;
+        $delete = $this->con->prepare($this->sql);
+        $data = $delete->execute($this->datos);
+        if ($data) {
+            $res = 1;
+        } else{
+            $res = 0;
+        }
+        return $res;
+        
+    }//final delete
     
 
 }//Final del Class

@@ -45,7 +45,7 @@ class Usuarios extends Controller{
         die();
     }
 
-    public function validar(){
+    public function validar(){ //funcion para validar el usuario osea el login
         if (empty($_POST['usuario']) || empty($_POST['clave'])) {
             $msg = "Los campos estan vacios";
         }else{
