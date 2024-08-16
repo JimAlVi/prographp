@@ -4,13 +4,7 @@
         public function __construct(){
             parent::__construct();
         }//final contruct
-
-       // public function getUsuario(string $usuario, string $clave){
-       //     $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND password='$clave'";
-       //     $data = $this->select($sql);
-       //     return $data;
-       // }
-
+   
        public function getUsuario(string $usuario){
             $sql = "SELECT * FROM usuarios WHERE usuario='$usuario'";
              $data = $this->select($sql);

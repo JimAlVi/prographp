@@ -5,12 +5,7 @@
             parent::__construct();
         }//final contruct
 
-       // public function getUsuario(string $usuario, string $clave){
-       //     $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND password='$clave'";
-       //     $data = $this->select($sql);
-       //     return $data;
-       // }
-
+       
        public function getProducto(string $producto){
             $sql = "SELECT * FROM productos WHERE nombre='$producto'";
              $data = $this->select($sql);

@@ -4,42 +4,27 @@
         public function __construct(){
             parent::__construct();
         }//final contruct
+       
 
-       // public function getUsuario(string $usuario, string $clave){
-       //     $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND password='$clave'";
-       //     $data = $this->select($sql);
-       //     return $data;
-       // }
-
-       public function getCategoria(string $categoria){
-            $sql = "SELECT * FROM categorias WHERE nombre='$categoria'";
+       public function getCategoria(string $nombre){
+            $sql = "SELECT * FROM categorias WHERE nombre='$nombre'";
              $data = $this->select($sql);
              return $data;
          }
 
-     /*    public function getCategorias(){
-            $sql = "SELECT * FROM categorias inner join categorias on productos.id_categoria = categorias.id";
+        public function getCategorias(){
+            $sql = "SELECT * FROM categorias";            
             $data = $this->selectAll($sql);         
             return $data;
-        }   */         
-        
-
-        public function getCategorias(){
-            $sql = "SELECT * FROM categorias WHERE estado = 1";
-            $data = $this->selectAll($sql);
-            return $data;
-        }
-
-
-     
-
-        public function registrarCategorias($nombre, $estado){
+        }           
+          
+        public function registrarCategoria($nombre,$estado){
             $sql = "INSERT INTO categorias(nombre,estado) values (?,?)";
             $datos = array( 
             $nombre,
             $estado 
             );
-            $verificar = "SELECT * FROM categorias where nombre = '$nombre'";
+            $verificar = "SELECT * FROM categorias where id = 'id'";
             $existe = $this->select($verificar);
             if (empty($existe)) {
                 $data = $this->save($sql,$datos);
@@ -55,14 +40,15 @@
            return $res;
         }//Final de la Funcion Registrar Usuario
 
-        public function modificarCategoria($id, $nombre, $estado){
+        public function modificarCategoria($id,$nombre,$estado){
             $sql = "UPDATE categorias SET
             nombre = ?,
             estado = ?
             WHERE id = ?";
-            $datos = array(
+            $datos = array(            
             $nombre,
             $estado,
+            $id
             );
                 $data = $this->save($sql,$datos);
                 if ($data == 1) {
@@ -79,21 +65,19 @@
 
 
 
-        public function editarCategorias($id){
+        public function editarCategoria($id){
             $sql = "SELECT * FROM categorias where id = $id";
             $data = $this->select($sql);
             return $data;
         }
 
 
-        public function eliminarCategorias($id){
-            $sql = "UPDATE categorias SET
-            estado = 0
-            WHERE id = ?";
+        public function eliminarCategoria($id){
+            $sql = "DELETE FROM categorias WHERE id = ?";
             $datos = array( 
             $id 
             );
-                $data = $this->save($sql,$datos);
+                $data = $this->delete($sql,$datos);
                 if ($data == 1) {
                     $res = "eliminado";
                 }else{

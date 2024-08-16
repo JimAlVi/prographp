@@ -58,23 +58,8 @@
                     <div class="form-group">
                         <label for="precio">Precio</label>
                         <input type="email" class="form-control" name="precio" id="precio" placeholder="¢15000">                        
-                    </div>
-                    
-                 <!--   <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="Contrasena">Contrasena</label>
-                                <input type="password" class="form-control" name="clave" id="clave" placeholder="Contrasena">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="Confirmar">Confirmar Contrasena</label>
-                                <input type="password" class="form-control" name="confirmar" id="confirmar" placeholder="Contrasena">
-                            </div>
-                        </div> 
-
-                    </div> -->
+                    </div>                    
+           
                     <div class="form-group">
                         <label for="Categoria">Categoría</label>
                         <select class="form-control" name="categoria" id="categoria" >
@@ -88,7 +73,7 @@
 
                  <!--  <?php 
                     //echo '<pre>';
-                    //print_r($data['categoria']);  // Esto imprimirá el contenido de $data en la página.
+                    //print_r($data['categoria']);  // Esto imprimirá el contenido de $data en la página lo dejo ya que sirve como filtro de debug
                     //print_r($data['productos']);  // Esto imprimirá el contenido de $data en la página.
                     //echo '</pre>';
                     ?>  -->                   
