@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <label for="cantidad">Cantidad</label>
-                        <input type="text" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad">
+                        <input type="number" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad">
                     </div>
                    <!--  <div class="form-group">
                         <label for="Telefono">Telefono</label>

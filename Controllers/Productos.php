@@ -19,7 +19,7 @@ class Productos extends Controller{
         $datos= $this->model->getProductos();
         for ($i=0; $i < count($datos); $i++){
 
-            if ($datos[$i]['estado']==1) {
+            if ($datos[$i]['estado']==1 && $datos[$i]['cantidad']>0 ) {
                 $datos[$i]['estado'] = '<span class="badge badge-success">Stock</span>';
             }else{
                 $datos[$i]['estado'] = '<span class="badge badge-danger">Agotado</span>';

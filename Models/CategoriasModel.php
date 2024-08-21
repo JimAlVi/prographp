@@ -73,11 +73,13 @@
 
 
         public function eliminarCategoria($id){
-            $sql = "DELETE FROM categorias WHERE id = ?";
+            $sql = "UPDATE categorias SET
+            estado = 0
+            WHERE id = ?";
             $datos = array( 
             $id 
             );
-                $data = $this->delete($sql,$datos);
+                $data = $this->save($sql,$datos);
                 if ($data == 1) {
                     $res = "eliminado";
                 }else{

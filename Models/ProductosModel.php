@@ -95,13 +95,13 @@
 
 
         public function eliminarProducto($id){
-            $sql = /* "UPDATE productos SET
+            $sql = "UPDATE productos SET
             estado = 0
-            WHERE id = ?" */"DELETE FROM productos WHERE id = ?";
+            WHERE id = ?";
             $datos = array( 
             $id 
             );
-                $data = $this->delete($sql,$datos);
+                $data = $this->save($sql,$datos);
                 if ($data == 1) {
                     $res = "eliminado";
                 }else{

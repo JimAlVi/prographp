@@ -457,6 +457,17 @@ function btnEliminarProducto(id){ //funcion para eliminar un producto
         }
     }//onreadystatechange
 
+    function actualizarEstado() {
+        const cantidad = document.getElementById('cantidad').value;
+        const estado = document.getElementById('estado');
+    
+        if (cantidad == 0) {
+            estado.value = "0";  // Agotado
+        } else if (cantidad > 0) {
+            estado.value = "1";  // En Stock
+        }
+    }
+
 
 }
 
